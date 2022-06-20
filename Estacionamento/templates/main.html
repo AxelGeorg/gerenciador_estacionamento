@@ -1,0 +1,59 @@
+{% extends 'Estacionamento/base.html' %}
+
+{% block title %} Menu {% endblock %}
+{% block titleBody %}Vagas Disponíveis{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="main-quemsomos">
+
+	<main>
+		<div class="main-text" style="text-align:center;color: black;">
+			<ul>
+				<div class="table-responsive" style="margin-right: 2%">
+					{% comment %} <hr>
+						<form action="?" method="GET">
+							<input type="text" name="nomeEmpresa" id="" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Nome ou parte dele">
+							<input type="text" name="cpf" id="cpf" value="{{ request.GET.cpf }}" class="p-1 border" autocomplete="off" placeholder="CPF ou parte dele">
+							<input type="text" name="cnpj" id="cnpj" value="{{ request.GET.cnpj }}" class="p-1 border" autocomplete="off" placeholder="CNPJ ou parte dele">
+							<a><input type="submit" class="btn btn-secondary" value="Buscar" /></a>
+							<a href="{% url 'mainCarros:list' %}"><input type="submit" class="btn btn-secondary" value="Limpar" /></a>
+						</form>
+					<hr> {% endcomment %}
+		
+					<table class="table table-striped" name="listarVagas" id="listar-vagas">
+						<thead>
+							<tr>
+								<th>Status</th>
+								<th>Setor</th>
+								<th>Data Alteração</th>
+								<th>Opções</th>
+							</tr>
+						</thead>
+		
+						<tbody>
+							{% for vaga in vaga_list %}
+								{% if vaga.status.value == "Disponível" %}
+									<tr>
+										<td>{{vaga.status.value}}</td>
+										<td>{{vaga.setor}}_{{vaga.id}}</td>
+										<td>{{vaga.dataHoraAlteracao}}</td>
+										<td><a style="color:black" href="{% url 'Estacionamento:gerenciaVagasCreate' vaga.id %}" title="Gerencia Vinculos">Gerenciar</a></td>
+									</tr>
+								{% endif %}
+							{% empty %}
+								<tr>
+									<td colspan="3">Nenhum vaga registrada.</td>
+								<tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</ul>
+
+			<div class="link-cadastro" style="text-align:center;color:white;">
+				<a>Cadastre-se</a>
+			</div>
+		</div>
+	</main>
+</div>
+{% endblock %}

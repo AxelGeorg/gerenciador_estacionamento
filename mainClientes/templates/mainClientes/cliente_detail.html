@@ -1,0 +1,23 @@
+{% extends 'Estacionamento/base.html' %}
+{% load static %}
+
+{% block title %} Detalhes {% endblock %}
+{% block titleBody %}Cliente{% endblock %}
+
+{% block content %}
+<a style="margin-left: 5%" href="{% url 'mainClientes:list' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
+<div style="text-align:center; margin-left: 25%; margin-right: 25%">
+    <p>Nome: {{cliente.nome}}</p>
+    <p>CPF: {{cliente.cpf}}</p>
+    <p>RG: {{cliente.rg}}</p>
+    <p>Data de Nascimento: {{cliente.data_nascimento}}</p>
+    <p>Enredeço: {{cliente.endereco}}</p>
+    <p>Telefone: {{cliente.telefone}}</p>
+    <p>Cidade: {{cliente.cidade}}</p>
+    <p>UF: {{cliente.uF.value}}</p>
+    <p>Data Hora Cadastro: {{cliente.dataHoraCadastro}}</p>
+    <p>Data Hora Altereção: {{cliente.dataHoraAlteracao}}</p>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,21 @@
+{% extends 'Estacionamento/base.html' %}
+{% load static %}
+
+{% block title %} Detalhes {% endblock %}
+{% block titleBody %}Carro{% endblock %}
+
+{% block content %}
+<a style="margin-left: 5%" href="{% url 'mainCarros:list' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
+<div style="text-align:center; margin-left: 25%; margin-right: 25%">
+    <h2>{{carro.placa}}</h2>
+    <p>Modelo: {{carro.modelo}}</p>
+    <p>Marca: {{carro.marca.value}}</p>
+    <p>Cor: {{carro.cor}}</p>
+    <p>Ano: {{carro.ano}}</p>
+    <p>Proprietário: {{carro.proprietario}}</p>
+    <p>Data Hora Cadastro: {{carro.dataHoraCadastro}}</p>
+    <p>Data Hora Altereção: {{carro.dataHoraAlteracao}}</p>
+</div>
+{% endblock %}
+
+

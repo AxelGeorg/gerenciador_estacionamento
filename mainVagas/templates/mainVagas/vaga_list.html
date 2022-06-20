@@ -1,0 +1,70 @@
+{% extends 'Estacionamento/base.html' %}
+{% load static %}
+
+{% block title %} Lista de Vagas {% endblock %}
+{% block titleBody %}Vagas{% endblock %}
+
+{% block content %}
+    <div style="text-align: center">
+        <a href="{% url 'mainVagas:create' %}"><input type="submit" class="btn btn-secondary" value="Cadastrar vaga" /></a>
+    </div>
+
+    <ul>
+        <div class="table-responsive" style="margin-right: 2%">
+            {% comment %} <hr>
+                <form action="?" method="GET">
+                    <input type="text" name="nomeEmpresa" id="" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Nome ou parte dele">
+                    <input type="text" name="cpf" id="cpf" value="{{ request.GET.cpf }}" class="p-1 border" autocomplete="off" placeholder="CPF ou parte dele">
+                    <input type="text" name="cnpj" id="cnpj" value="{{ request.GET.cnpj }}" class="p-1 border" autocomplete="off" placeholder="CNPJ ou parte dele">
+                    <a><input type="submit" class="btn btn-secondary" value="Buscar" /></a>
+                    <a href="{% url 'mainCarros:list' %}"><input type="submit" class="btn btn-secondary" value="Limpar" /></a>
+                </form>
+            <hr> {% endcomment %}
+
+            <table class="table table-striped" id="listar-vagas">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Setor</th>
+                        <th>Data Alteração</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for vaga in vaga_list %}
+                        <tr>
+                            <td>{{vaga.status.value}}</td>
+                            <td>{{vaga.setor}}_{{vaga.id}}</td>
+                            <td>{{vaga.dataHoraAlteracao}}</td>
+                            <td>  <a style="color:black" href="{% url 'mainVagas:update' pk=vaga.id %}" title="Editar Vaga">Editar</a> 
+                                - <a style="color:black" href="{% url 'mainVagas:detail' pk=vaga.id %}" title="Vizualizar Vaga">Vizualizar</a>
+                                - <a style="color:black" href="{% url 'mainVagas:delete' pk=vaga.id %}" title="Deletar Vaga">Deletar</a></td>
+                            </li>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="3">Nenhum vaga registrada.</td>
+                        <tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </ul>
+
+    <div style="text-align: center">
+        <a href="{% url 'Estacionamento:main' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+    {% comment %} https://igorescobar.github.io/jQuery-Mask-Plugin/ {% endcomment %}
+    <script>
+        $(document).ready(function(){
+            $("#cpf").mask('000.000.000-00', {reverse: true});
+            $("#cnpj").mask('00.000.000/0000-00', {reverse: true});
+        });
+    </script>
+{% endblock %}
