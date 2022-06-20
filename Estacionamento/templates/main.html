@@ -4,7 +4,7 @@
 {% block titleBody %}Vagas Disponíveis{% endblock %}
 
 {% block content %}
-<div class="container-fluid" id="main-quemsomos">
+<div class="container-fluid">
 
 	<main>
 		<div class="main-text" style="text-align:center;color: black;">
@@ -42,17 +42,13 @@
 								{% endif %}
 							{% empty %}
 								<tr>
-									<td colspan="3">Nenhum vaga registrada.</td>
+									<td colspan="4">Nenhum vaga registrada.</td>
 								<tr>
 							{% endfor %}
 						</tbody>
 					</table>
 				</div>
 			</ul>
-
-			<div class="link-cadastro" style="text-align:center;color:white;">
-				<a>Cadastre-se</a>
-			</div>
 		</div>
 	</main>
 </div>

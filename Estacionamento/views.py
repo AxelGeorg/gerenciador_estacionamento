@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from Estacionamento.form import GerenteciaVagasForm
 from Estacionamento.models import GerenciaVaga
 
@@ -15,7 +15,13 @@ def gerenciaVagasCreate(request, pk):
     data = {}
     vaga = Vaga.objects.get(pk=pk)
     gerenciaVaga = GerenciaVaga(vaga)
-    data['vaga'] = vaga
-    data['form'] = GerenteciaVagasForm(
+    form = GerenteciaVagasForm(
         request.POST or None, instance=gerenciaVaga)
+
+    if form.is_valid():
+        form.save()
+        return redirect("main.html")
+
+    data['vaga'] = vaga
+    data['form'] = form
     return render(request, 'gerenciaVaga_form.html', data)
