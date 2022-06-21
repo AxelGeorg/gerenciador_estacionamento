@@ -10,11 +10,7 @@ class GerenciaVaga(models.Model):
 
     vaga = models.ForeignKey(
         Vaga, unique=True, on_delete=models.CASCADE, editable=False)
-    carro = models.ForeignKey(Carro, on_delete=models.CASCADE)
-
-    def __init__(self, vaga, *args, **kwargs):
-        super(GerenciaVaga, self).__init__(self, *args, **kwargs)
-        self.vaga = vaga
+    carro = models.ForeignKey(Carro, unique=True, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.vaga.setor + " - " + self.carro.placa

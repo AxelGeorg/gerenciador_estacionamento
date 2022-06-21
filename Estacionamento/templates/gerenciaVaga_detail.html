@@ -1,0 +1,18 @@
+{% extends 'Estacionamento/base.html' %}
+{% load static %}
+
+{% block title %} Pagamento {% endblock %}
+{% block titleBody %}Pagamento{% endblock %}
+
+{% block content %}
+<a style="margin-left: 5%" href="{% url 'Estacionamento:gerenciaVagasList' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
+<div style="text-align:center; margin-left: 25%; margin-right: 25%">
+    <h2>Vaga {{gerenciaVaga.vaga.setor}}_{{gerenciaVaga.vaga.id}}</h2>
+
+    <div style="text-align: center">
+        <a href="{% url 'Estacionamento:gerenciaVagasList' %}"><input type="submit" class="btn btn-secondary" value="Pagar" /></a>
+    </div>
+</div>
+{% endblock %}
+
+
