@@ -8,6 +8,16 @@ from .models import Vaga
 class VagaList(ListView):
     model = Vaga
     fields = '__all__'
+    paginate_by = 5
+
+    def get_queryset(self):
+
+        txtStatus = self.request.GET.get('status')
+        if txtStatus:
+            return Vaga.objects.filter(
+                status__icontains=txtStatus)
+
+        return Vaga.objects.all()
 
 
 class VagaDetail(DetailView):

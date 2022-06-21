@@ -4,6 +4,8 @@
 {% block title %} Lista de Clientes {% endblock %}
 {% block titleBody %}Clientes{% endblock %}
 
+<meta http-equiv="cache-control" content="no-cache" />
+
 {% block content %}
     <div style="text-align: center">
         <a href="{% url 'mainClientes:create' %}"><input type="submit" class="btn btn-secondary" value="Cadastrar cliente" /></a>
@@ -11,15 +13,15 @@
 
     <ul>
         <div class="table-responsive">
-            {% comment %} <hr>
+
+            <hr>
                 <form action="?" method="GET">
-                    <input type="text" name="nomeEmpresa" id="" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Nome ou parte dele">
-                    <input type="text" name="cpf" id="cpf" value="{{ request.GET.cpf }}" class="p-1 border" autocomplete="off" placeholder="CPF ou parte dele">
-                    <input type="text" name="cnpj" id="cnpj" value="{{ request.GET.cnpj }}" class="p-1 border" autocomplete="off" placeholder="CNPJ ou parte dele">
+                    <input type="text" name="nome" id="" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Nome ou parte dele">
+                    <input type="text" name="cpf" id="cpf" value="{{ request.GET.cpf }}" class="p-1 border" autocomplete="off" placeholder="CPF">
                     <a><input type="submit" class="btn btn-secondary" value="Buscar" /></a>
-                    <a href="{% url 'mainCarros:list' %}"><input type="submit" class="btn btn-secondary" value="Limpar" /></a>
+                    <a href="{% url 'mainClientes:list'%}"><input type="" class="btn btn-secondary" value="Limpar"/></a>
                 </form>
-            <hr> {% endcomment %}
+            <hr>
 
             <table class="table table-striped" id="listar-vagas">
                 <thead>
@@ -51,12 +53,14 @@
                     {% endfor %}
                 </tbody>
             </table>
+
+            {% include 'Estacionamento/paginacao.html' %}
+
+            <div style="text-align: center">
+                <a href="{% url 'Estacionamento:main' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
+            </div>
         </div>
     </ul>
-
-    <div style="text-align: center">
-        <a href="{% url 'Estacionamento:main' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
-    </div>
 {% endblock %}
 
 {% block scripts %}

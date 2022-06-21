@@ -8,6 +8,23 @@ from .models import Cliente
 class ClienteList(ListView):
     model = Cliente
     fields = '__all__'
+    paginate_by = 5
+
+    def get_queryset(self):
+
+        clientes = Cliente.objects.all()
+
+        txtNome = self.request.GET.get('nome')
+        if txtNome:
+            clientes = clientes.filter(
+                nome__icontains=txtNome)
+
+        txtCPF = self.request.GET.get('cpf')
+        if txtCPF:
+            clientes = clientes.filter(
+                cpf__icontains=txtCPF)
+
+        return clientes 
 
 
 class ClienteDetail(DetailView):

@@ -8,6 +8,18 @@ from .models import Carro
 class CarroList(ListView):
     model = Carro
     fields = '__all__'
+    paginate_by = 5
+
+    def get_queryset(self):
+
+        txtModelo = self.request.GET.get('modelo')
+        if txtModelo:
+            carros = Carro.objects.filter(
+                modelo__icontains=txtModelo)
+        else:
+            carros = Carro.objects.all()
+
+        return carros
 
 
 class CarroDetail(DetailView):

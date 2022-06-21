@@ -11,15 +11,14 @@
 
     <ul>
         <div class="table-responsive">
-            {% comment %} <hr>
+
+            <hr>
                 <form action="?" method="GET">
-                    <input type="text" name="nomeEmpresa" id="" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Nome ou parte dele">
-                    <input type="text" name="cpf" id="cpf" value="{{ request.GET.cpf }}" class="p-1 border" autocomplete="off" placeholder="CPF ou parte dele">
-                    <input type="text" name="cnpj" id="cnpj" value="{{ request.GET.cnpj }}" class="p-1 border" autocomplete="off" placeholder="CNPJ ou parte dele">
-                    <a><input type="submit" class="btn btn-secondary" value="Buscar" /></a>
-                    <a href="{% url 'mainCarros:list' %}"><input type="submit" class="btn btn-secondary" value="Limpar" /></a>
+                    <input type="text" name="modelo" id="" value="{{ request.GET.modelo }}" class="p-1 border" autocomplete="off" placeholder="Modelo ou parte dele">
+                    <a><input type="submit" class="btn btn-secondary" value="Buscar"/></a>
+                    <a href="{% url 'mainCarros:list'%}"><input type="" class="btn btn-secondary" value="Limpar"/></a>
                 </form>
-            <hr> {% endcomment %}
+            <hr>
 
             <table class="table table-striped" id="listar-carros">
                 <thead>
@@ -55,12 +54,14 @@
                     {% endfor %}
                 </tbody>
             </table>
+
+            {% include 'Estacionamento/paginacao.html' %}
+            
+            <div style="text-align: center">
+                <a href="{% url 'Estacionamento:main' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
+            </div>
         </div>
     </ul>
-
-    <div style="text-align: center">
-        <a href="{% url 'Estacionamento:main' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
-    </div>
 {% endblock %}
 
 {% block scripts %}
