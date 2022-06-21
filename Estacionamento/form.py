@@ -14,7 +14,7 @@ class GerenteciaVagasForm(forms.ModelForm):
 
     class Meta:
         model = GerenciaVaga
-        fields = ('carro',)
+        fields = ('carro', 'valor',)
 
     def save(self):
         obj = super().save(commit=False)

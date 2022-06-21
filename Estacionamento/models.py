@@ -11,6 +11,7 @@ class GerenciaVaga(models.Model):
     vaga = models.ForeignKey(
         Vaga, unique=True, on_delete=models.CASCADE, editable=False)
     carro = models.ForeignKey(Carro, unique=True, on_delete=models.CASCADE)
+    valor = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self) -> str:
         return self.vaga.setor + " - " + self.carro.placa

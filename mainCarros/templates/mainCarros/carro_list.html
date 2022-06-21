@@ -28,7 +28,6 @@
                         <th>Modelo</th>
                         <th>Marca</th>
                         <th>Placa</th>
-                        <th>Data Alteração</th>
                         <th>Opções</th>
                     </tr>
                 </thead>
@@ -44,7 +43,6 @@
                             <td>{{carro.modelo}}</td>
                             <td>{{carro.marca.value}}</td>
                             <td>{{carro.placa}}</td>
-                            <td>{{carro.dataHoraAlteracao}}</td>
                             <td>  <a style="color:black" href="{% url 'mainCarros:update' pk=carro.id %}" title="Editar Carro">Editar</a> 
                                 - <a style="color:black" href="{% url 'mainCarros:detail' pk=carro.id %}" title="Vizualizar Carro">Vizualizar</a>
                                 - <a style="color:black" href="{% url 'mainCarros:delete' pk=carro.id %}" title="Deletar Carro">Deletar</a></td>

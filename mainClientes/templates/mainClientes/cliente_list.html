@@ -28,7 +28,6 @@
                         <th>CPF</th>
                         <th>Cidade</th>
                         <th>UF</th>
-                        <th>Data Alteração</th>
                         <th>Opções</th>
                     </tr>
                 </thead>
@@ -40,7 +39,6 @@
                             <td>{{cliente.cpf}}</td>
                             <td>{{cliente.cidade}}</td>
                             <td>{{cliente.uF.value}}</td>
-                            <td>{{cliente.dataHoraAlteracao}}</td>
                             <td>  <a style="color:black" href="{% url 'mainClientes:update' pk=cliente.id %}" title="Editar Cliente">Editar</a> 
                                 - <a style="color:black" href="{% url 'mainClientes:detail' pk=cliente.id %}" title="Vizualizar Cliente">Vizualizar</a>
                                 - <a style="color:black" href="{% url 'mainClientes:delete' pk=cliente.id %}" title="Deletar Cliente">Deletar</a></td>
