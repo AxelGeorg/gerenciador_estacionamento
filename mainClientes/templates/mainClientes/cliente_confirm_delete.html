@@ -1,13 +1,13 @@
 {% extends 'Estacionamento/base.html' %}
 {% load static %}
 
-{% block title %}Remover Vaga{% endblock %}
+{% block title %}Remover Cliente{% endblock %}
 {% block titleBody %}Remover Registro{% endblock %}
 
 {% block content %}
-<div style="text-align:center; margin-left: 80px">
+<div style="text-align:center;">
     <form method="post" action"post">
-        {% comment %} <h3>Deseja remover a registro da vaga: <strong>{{vaga.nomeEmpresa}}</strong></h3> {% endcomment %}
+        <h3>Deseja remover o registro do cliente: <strong>{{cliente.nome}}</strong></h3>
         {% csrf_token %}
         <input type="submit" class="btn btn-danger" value="Sim, tenho certeza">
         <input type="reset" class="btn btn-secondary" value="Calcelar" onclick="location.href = '{% url 'mainClientes:list' %}'">
