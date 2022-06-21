@@ -25,30 +25,7 @@
     {% comment %} https://igorescobar.github.io/jQuery-Mask-Plugin/ {% endcomment %}
     <script>
         $(document).ready(function(){
-            $("#id_cpf").mask('000.000.000-00', {reverse: true});
-            $("#id_rg").mask('0.000.000', {reverse: true});
-            $("#id_cnpj").mask('00.000.000/0000-00', {reverse: true});
-            $("#id_data_nascimento").mask('00/00/0000');
-
-            var SPMaskBehavior = function (val) {
-                return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
-            },
-            spOptions = {
-                onKeyPress: function(val, e, field, options) {
-                    field.mask(SPMaskBehavior.apply({}, arguments), options);
-                }
-            };
-              
-            $("#id_telefone").mask(SPMaskBehavior, spOptions);
-
-
-            $("#enable").click(function (){
-                $("input").prop("disabled", false);
-            });
-
-            $("#disable").click(function (){
-                $("input").prop("disabled", true);
-            });
+            $('#id_valor').mask('000.000.000.000.000,00', {reverse: true});
         });
     </script>
 {% endblock %}

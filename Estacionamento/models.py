@@ -8,10 +8,11 @@ from mainVagas.models import Vaga
 
 class GerenciaVaga(models.Model):
 
-    vaga = models.ForeignKey(
+    vaga = models.OneToOneField(
         Vaga, unique=True, on_delete=models.CASCADE, editable=False)
-    carro = models.ForeignKey(Carro, unique=True, on_delete=models.CASCADE)
-    valor = models.DecimalField(max_digits=8, decimal_places=2)
+    carro = models.OneToOneField(
+        Carro, unique=True, on_delete=models.CASCADE)
+    valor = models.CharField(max_length=100)
 
     def __str__(self) -> str:
         return self.vaga.setor + " - " + self.carro.placa
