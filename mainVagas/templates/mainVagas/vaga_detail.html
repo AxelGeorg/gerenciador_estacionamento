@@ -5,8 +5,8 @@
 {% block titleBody %}Vaga{% endblock %}
 
 {% block content %}
-<a style="margin-left: 5%" href="{% url 'mainVagas:list' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
-<div style="text-align:center; margin-left: 25%; margin-right: 25%">
+<a href="{% url 'mainVagas:list' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
+<div style="text-align:center;">
     <p>Status: {{vaga.status.value}}</p>
     <p>Setor: {{vaga.setor}}_{{vaga.id}}</p>
     <p>Tipo: {{vaga.tipoVeiculo.value}}</p>

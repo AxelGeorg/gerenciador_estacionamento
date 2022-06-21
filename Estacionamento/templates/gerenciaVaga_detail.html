@@ -5,8 +5,8 @@
 {% block titleBody %}Pagamento{% endblock %}
 
 {% block content %}
-<a style="margin-left: 5%" href="{% url 'Estacionamento:gerenciaVagasList' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
-<div style="text-align:center; margin-left: 25%; margin-right: 25%">
+<a href="{% url 'Estacionamento:gerenciaVagasList' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
+<div style="text-align:center;">
     <h2>Vaga {{gerenciaVaga.vaga.setor}}_{{gerenciaVaga.vaga.id}}</h2>
     </br>
     <p>Modelo do carro: {{gerenciaVaga.carro.modelo}}</p>

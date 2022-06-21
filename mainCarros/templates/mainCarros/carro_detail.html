@@ -5,8 +5,8 @@
 {% block titleBody %}Carro{% endblock %}
 
 {% block content %}
-<a style="margin-left: 5%" href="{% url 'mainCarros:list' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
-<div style="text-align:center; margin-left: 25%; margin-right: 25%">
+<a href="{% url 'mainCarros:list' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
+<div style="text-align:center;">
     <h2>{{carro.placa}}</h2>
     <p>Modelo: {{carro.modelo}}</p>
     <p>Marca: {{carro.marca.value}}</p>

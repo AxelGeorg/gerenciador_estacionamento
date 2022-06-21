@@ -5,8 +5,8 @@
 {% block titleBody %}Cliente{% endblock %}
 
 {% block content %}
-<a style="margin-left: 5%" href="{% url 'mainClientes:list' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
-<div style="text-align:center; margin-left: 25%; margin-right: 25%">
+<a href="{% url 'mainClientes:list' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
+<div style="text-align:center;">
     <p>Nome: {{cliente.nome}}</p>
     <p>CPF: {{cliente.cpf}}</p>
     <p>RG: {{cliente.rg}}</p>

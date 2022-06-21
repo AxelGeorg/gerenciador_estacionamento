@@ -16,10 +16,6 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
-#main-landing {
-    margin-top: 3.33rem;
-}
-
 
 /* HEADER (NAVBAR) - LANDING */
 
@@ -42,7 +38,6 @@ div#navbar {
 #nav3 {
     display: inline-block;
     padding: 10px;
-    margin: 2px;
     transition: background-color 1s;
     color: white;
 }
@@ -59,23 +54,16 @@ div#navbar {
     background-color: rgba(0, 0, 0, 0.5) !important;
     height: 370px;
     width: 400px;
-    margin-top: 2rem;
-    margin-bottom: 7rem;
 }
 
 .social_icon span {
     color: #ffc312;
     font-size: 60px;
-    margin-left: 10px;
 }
 
 .social_icon span:hover {
     color: white;
     cursor: pointer;
-}
-
-.card-header {
-    margin-top: 0.3rem;
 }
 
 .card-header h3 {
@@ -107,8 +95,6 @@ input:focus {
 .remember input {
     width: 20px;
     height: 20px;
-    margin-left: 15px;
-    margin-right: 5px;
 }
 
 .login_btn {
@@ -124,10 +110,6 @@ input:focus {
 
 .links {
     color: white;
-}
-
-.links a {
-    margin-left: 4px;
 }
 
 #id_campo_inferior a {
@@ -146,29 +128,13 @@ input:focus {
     height: 200px;
 }
 
-#topo {
-    margin-bottom: 40px;
-    margin-top: 20px;
-}
-
 .modal a.close-modal {
     top: 10.5px !important;
     right: 9.5px !important;
 }
 
-.main-title {
-    margin-top: 9.7rem;
-    margin-left: 14rem;
-}
-
-.main-text {
-    margin-top: 3rem;
-    margin-left: 14rem;
-}
-
 .link-cadastro {
     text-align: center;
-    margin-top: 4rem;
 }
 
 .link-cadastro a {
