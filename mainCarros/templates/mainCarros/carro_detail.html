@@ -15,6 +15,13 @@
     <p>Proprietário: {{carro.proprietario}}</p>
     <p>Data Hora Cadastro: {{carro.dataHoraCadastro}}</p>
     <p>Data Hora Altereção: {{carro.dataHoraAlteracao}}</p>
+    <p>Está no Estacionamento: 
+        {% if carro.ocupandoVaga == True %}
+            Sim
+        {% else %}
+            Não
+        {% endif %}
+    </p>
 </div>
 {% endblock %}
 

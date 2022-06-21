@@ -25,10 +25,10 @@
                 <thead>
                     <tr>
                         <th>Status</th>
-                        <th>Proprietário</th>
+                        <th>Setor</th>
                         <th>Modelo</th>
                         <th>Placa</th>
-                        <th>Setor</th>
+                        <th>Proprietário</th>
                         <th>Opções</th>
                     </tr>
                 </thead>
@@ -37,10 +37,10 @@
                     {% for gerenciaVaga in gerenciaVaga_list %}
                         <tr>
                             <td>{{gerenciaVaga.vaga.status.value}}</td>
-                            <td>{{gerenciaVaga.carro.proprietario.nome}}</td>
+                            <td>{{gerenciaVaga.vaga.setor}}_{{gerenciaVaga.vaga.id}}</td>
                             <td>{{gerenciaVaga.carro.modelo}}</td>
                             <td>{{gerenciaVaga.carro.placa}}</td>
-                            <td>{{gerenciaVaga.vaga.setor}}_{{gerenciaVaga.vaga.id}}</td>
+                            <td>{{gerenciaVaga.carro.proprietario.nome}}</td>
                             <td><a style="color:black" href="{% url 'Estacionamento:gerenciaVagasDetail' gerenciaVaga.id %}" title="Realizar Pagamento">Realizar Pagamento</a></td>
                         </tr>
                     {% empty %}

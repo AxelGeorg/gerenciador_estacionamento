@@ -8,6 +8,7 @@
 <a style="margin-left: 5%" href="{% url 'mainVagas:list' %}"><input type="submit" class="btn btn-secondary" value="Voltar" /></a>
 <div style="text-align:center; margin-left: 25%; margin-right: 25%">
     <p>Modelo: {{vaga.ativa}}</p>
+    <p>Setor: {{vaga.setor}}</p>
     <p>Marca: {{vaga.tipoVeiculo.value}}</p>
     <p>Data Hora Cadastro: {{vaga.dataHoraCadastro}}</p>
     <p>Data Hora Altereção: {{vaga.dataHoraAlteracao}}</p>

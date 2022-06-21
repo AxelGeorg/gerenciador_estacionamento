@@ -24,6 +24,7 @@
             <table class="table table-striped" id="listar-carros">
                 <thead>
                     <tr>
+                        <th>Está no Estacionamento</th>
                         <th>Modelo</th>
                         <th>Marca</th>
                         <th>Placa</th>
@@ -35,6 +36,11 @@
                 <tbody>
                     {% for carro in carro_list %}
                         <tr>
+                            {% if carro.ocupandoVaga == True %}
+                                <td>Sim</td>
+                            {% else %}
+                                <td>Não</td>
+                            {% endif %}
                             <td>{{carro.modelo}}</td>
                             <td>{{carro.marca.value}}</td>
                             <td>{{carro.placa}}</td>
@@ -46,7 +52,7 @@
                         </tr>
                     {% empty %}
                         <tr>
-                            <td colspan="5">Nenhum carro registrado.</td>
+                            <td colspan="6">Nenhum carro registrado.</td>
                         <tr>
                     {% endfor %}
                 </tbody>

@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from Estacionamento.form import GerenteciaVagasForm
 from Estacionamento.models import GerenciaVaga
+from mainCarros.models import Carro
 
 from mainVagas.models import EnumStatus, Vaga
 
@@ -22,6 +23,9 @@ def gerenciaVagasCreate(request, pk):
     if form.is_valid():
         form.save()
         vaga.save()
+        carro = Carro.objects.get(pk=form['carro'].value())
+        carro.ocupandoVaga = True
+        carro.save()
         return redirect('Estacionamento:main')
 
     data['vaga'] = vaga
@@ -40,4 +44,15 @@ def gerenciaVagasDetail(request, pk):
     data = {}
     gerenciaVaga = GerenciaVaga.objects.get(pk=pk)
     data['gerenciaVaga'] = gerenciaVaga
-    return render(request, 'gerenciaVaga_detail.html', data)
+
+    if request.method == 'POST':
+        carro = Carro.objects.get(pk=gerenciaVaga.carro.id)
+        carro.ocupandoVaga = False
+        carro.save()
+        vaga = Vaga.objects.get(pk=gerenciaVaga.vaga.id)
+        vaga.status = EnumStatus.disponivel
+        vaga.save()
+        gerenciaVaga.delete()
+        return redirect('Estacionamento:gerenciaVagasList')
+    else:
+        return render(request, 'gerenciaVaga_detail.html', data)

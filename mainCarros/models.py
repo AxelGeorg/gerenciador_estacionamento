@@ -1,3 +1,4 @@
+from email.policy import default
 from enum import Enum
 from django.db import models
 from django_enum_choices.fields import EnumChoiceField
@@ -86,6 +87,7 @@ class Carro(models.Model):
         auto_now_add=True, editable=False, verbose_name="Data e Hora Cadastro")
     dataHoraAlteracao = models.DateTimeField(
         auto_now=True, editable=False, verbose_name="Data e Hora Alteração")
+    ocupandoVaga = models.BooleanField(default=False, editable=False)
 
     def __str__(self) -> str:
         return self.modelo + " - " + self.placa
